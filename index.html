@@ -15,14 +15,8 @@
             --text-dark: #312e38;
             --text-light: #f9fafb;
         }
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        html {
-            scroll-behavior: smooth;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
         body {
             font-family: 'Roboto', sans-serif;
             line-height: 1.6;
@@ -75,17 +69,8 @@
             font-size: 1.1rem;
             margin-bottom: 1.5rem;
         }
-        .text-content li {
-            margin-bottom: 0.5rem;
-        }
-        .text-content .accent-text {
-            font-family: 'Roboto Mono', monospace;
-            font-size: 1rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            color: var(--primary-purple);
-            margin-bottom: 0.5rem;
-        }
+        .text-content li { margin-bottom: 0.5rem; }
+
         .visual-element {
             width: 100%;
             max-width: 400px;
@@ -106,6 +91,7 @@
             border-radius: 20px;
             box-shadow: 0 4px 24px rgba(40, 0, 60, 0.08);
         }
+
         /* Virtudes en 2 columnas responsivo */
         .virtudes-grid {
             display: grid;
@@ -117,11 +103,33 @@
             padding-left: 0;
             max-width: 420px;
         }
+
+        /* 3 fotos vertical (slide 3) */
+        .visual-element-vertical-3 {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            width: 400px;
+            height: 400px;
+            border-radius: 20px;
+            overflow: hidden;
+            background: #f3f0ff;
+        }
+        .visual-element-vertical-3 img {
+            width: 100%;
+            height: calc(33.333% - 13.33px);
+            object-fit: cover;
+            border-radius: 0;
+        }
+        .visual-element-vertical-3 img:first-child { border-top-left-radius: 20px; border-top-right-radius: 20px; }
+        .visual-element-vertical-3 img:last-child { border-bottom-left-radius: 20px; border-bottom-right-radius: 20px; }
+
+        /* 4 fotos grid (slide 4) */
         .visual-element-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
             grid-template-rows: 1fr 1fr;
-            gap: 14px;
+            gap: 28px;
             width: 400px;
             height: 400px;
             border-radius: 20px;
@@ -160,7 +168,7 @@
             background: linear-gradient(135deg, var(--fuchsia-matte) 0%, var(--soft-purple) 100%);
             color: var(--text-dark);
         }
-        .slide-5 h2, .slide-5 .accent-text {
+        .slide-5 h2 {
             color: var(--primary-purple);
             text-shadow: 0 2px 8px #fff8;
         }
@@ -201,15 +209,13 @@
                 max-width: 100%;
                 margin: 0 auto 1.5em auto;
             }
+            .visual-element,
+            .visual-element-vertical-3,
             .visual-element-grid {
-                width: 95vw;
-                height: 48vw;
-                max-height: 220px;
-                margin: 0 auto;
-            }
-            .visual-element {
                 max-width: 95vw;
                 height: 240px;
+                margin: 0 auto;
+                width: 95vw;
             }
         }
         @media (max-width: 600px) {
@@ -217,8 +223,11 @@
                 grid-template-columns: 1fr;
                 max-width: 100%;
             }
+            .visual-element,
+            .visual-element-vertical-3,
             .visual-element-grid {
                 width: 95vw;
+                max-width: 95vw;
                 height: 48vw;
                 max-height: 180px;
             }
@@ -231,7 +240,6 @@
         <section class="slide slide-1">
             <div class="slide-content">
                 <div class="text-content">
-                    <div class="accent-text">¡Tus primeros 30!</div>
                     <h1>¡Feliz cumpleaños, mi amor!</h1>
                     <p>Mi amor, hoy celebramos tus primeros 30 años de vida. ¡Feliz cumpleaños! Es un momento muy especial y quiero que sepas lo feliz que me hace poder acompañarte, aunque sea a la distancia, en este día tan importante.</p>
                 </div>
@@ -240,11 +248,10 @@
                 </div>
             </div>
         </section>
-        <!-- Slide 2 (Virtudes, 2 columnas y 4 fotos) -->
+        <!-- Slide 2: Virtudes, solo 1 foto -->
         <section class="slide slide-2 reverse">
             <div class="slide-content">
                 <div class="text-content">
-                    <div class="accent-text">Tu luz y virtudes</div>
                     <h2>Virtudes que te hacen única</h2>
                     <p>Durante estos 30 años has llenado el mundo de luz con tus virtudes:</p>
                     <ul class="virtudes-grid">
@@ -272,37 +279,37 @@
                     <p style="margin-top:1em;"><strong>Y muchas más que ya no caben en la diapositiva...</strong></p>
                     <p>Eres una mujer maravillosa y única.</p>
                 </div>
-                <div class="visual-element-grid">
-                    <img src="assets/images/foto2a.jpg" alt="Virtud 1">
-                    <img src="assets/images/foto2b.jpg" alt="Virtud 2">
-                    <img src="assets/images/foto2c.jpg" alt="Virtud 3">
-                    <img src="assets/images/foto2d.jpg" alt="Virtud 4">
+                <div class="visual-element">
+                    <img src="assets/images/foto2.jpg" alt="Foto que muestre sus virtudes">
                 </div>
             </div>
         </section>
-        <!-- Slide 3 -->
+        <!-- Slide 3: 3 fotos vertical -->
         <section class="slide slide-3">
             <div class="slide-content">
                 <div class="text-content">
-                    <div class="accent-text">Deseos para ti</div>
                     <h2>Que todos tus sueños se hagan realidad</h2>
                     <p>Te mereces que todos tus sueños y deseos se hagan realidad. Hoy quiero desearte de corazón un muy feliz cumpleaños y recordarte lo valiosa que eres para mí y para todos los que te rodean.</p>
                 </div>
-                <div class="visual-element">
-                    <img src="assets/images/foto3.jpg" alt="Foto de algún logro o sueño cumplido">
+                <div class="visual-element-vertical-3">
+                    <img src="assets/images/foto3a.jpg" alt="Sueño o logro 1">
+                    <img src="assets/images/foto3b.jpg" alt="Sueño o logro 2">
+                    <img src="assets/images/foto3c.jpg" alt="Sueño o logro 3">
                 </div>
             </div>
         </section>
-        <!-- Slide 4 -->
+        <!-- Slide 4: 4 fotos grid -->
         <section class="slide slide-4 reverse">
             <div class="slide-content">
                 <div class="text-content">
-                    <div class="accent-text">Siempre contigo</div>
                     <h2>Siempre estaré a tu lado</h2>
                     <p>Aunque hoy no podamos estar juntos físicamente, sabes que siempre estaré ahí para ti. Espero que la vida me permita acompañarte en todos los años que están por venir y seguir compartiendo momentos inolvidables juntos.</p>
                 </div>
-                <div class="visual-element">
-                    <img src="assets/images/foto4.jpg" alt="Foto juntos o que represente unión">
+                <div class="visual-element-grid">
+                    <img src="assets/images/foto4a.jpg" alt="Juntos 1">
+                    <img src="assets/images/foto4b.jpg" alt="Juntos 2">
+                    <img src="assets/images/foto4c.jpg" alt="Juntos 3">
+                    <img src="assets/images/foto4d.jpg" alt="Juntos 4">
                 </div>
             </div>
         </section>
@@ -310,7 +317,6 @@
         <section class="slide slide-5">
             <div class="slide-content">
                 <div class="text-content">
-                    <div class="accent-text">Con todo mi amor</div>
                     <h2>Te amo mucho</h2>
                     <p>Te amo mucho y te deseo el cumpleaños más feliz de todos. ¡Feliz cumpleaños, mi amor!</p>
                     <div style="margin-top:20px;">
