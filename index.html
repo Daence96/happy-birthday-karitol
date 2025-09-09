@@ -198,6 +198,8 @@
         .nav-dot:hover {
             background: var(--fuchsia-matte);
         }
+
+        /* 900px breakpoint */
         @media (max-width: 900px) {
             .slide-content {
                 grid-template-columns: 1fr;
@@ -226,18 +228,74 @@
                 max-height: 220px;
             }
         }
+
+        /* Mejoras para celulares (600px y menos) */
         @media (max-width: 600px) {
-            .virtudes-grid {
+            .slide-content {
                 grid-template-columns: 1fr;
-                max-width: 100%;
+                gap: 1rem;
+                text-align: center;
             }
             .visual-element,
             .visual-element-horizontal-3,
             .visual-element-grid {
-                width: 95vw;
-                max-width: 95vw;
-                height: 48vw;
-                max-height: 180px;
+                width: 100vw;
+                max-width: 100vw;
+                margin: 0 auto;
+            }
+            .visual-element {
+                height: 52vw;
+                max-height: 65vw;
+                min-height: 140px;
+                aspect-ratio: 1/1;
+            }
+            .visual-element img {
+                border-radius: 20px !important;
+            }
+            .visual-element-horizontal-3 {
+                height: 36vw;
+                min-height: 95px;
+                aspect-ratio: 2.3/1;
+                border-radius: 20px;
+            }
+            .visual-element-horizontal-3 img {
+                height: 100%;
+                border-radius: 0 !important;
+            }
+            .visual-element-horizontal-3 img:first-child { border-top-left-radius: 20px !important; border-bottom-left-radius: 20px !important; }
+            .visual-element-horizontal-3 img:last-child  { border-top-right-radius: 20px !important; border-bottom-right-radius: 20px !important; }
+
+            .visual-element-grid {
+                height: 65vw;
+                min-height: 140px;
+                aspect-ratio: 1/1;
+                border-radius: 20px;
+            }
+            .visual-element-grid img {
+                height: 100%;
+                border-radius: 0 !important;
+            }
+            .visual-element-grid img:nth-child(1) { border-top-left-radius: 20px !important; }
+            .visual-element-grid img:nth-child(2) { border-top-right-radius: 20px !important; }
+            .visual-element-grid img:nth-child(3) { border-bottom-left-radius: 20px !important; }
+            .visual-element-grid img:nth-child(4) { border-bottom-right-radius: 20px !important; }
+
+            .virtudes-grid {
+                grid-template-columns: 1fr;
+                max-width: 100%;
+                font-size: 1em;
+            }
+            .text-content h1, .text-content h2 {
+                font-size: 1.6rem;
+            }
+            .text-content p, .virtudes-grid, .text-content ul {
+                font-size: 1em;
+            }
+            .slide {
+                padding: 1rem;
+            }
+            .nav-dots {
+                right: 0.5rem;
             }
         }
     </style>
