@@ -6,40 +6,35 @@
     <title>¡Feliz Cumpleaños Karitol!</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,400&family=Roboto+Mono:wght@300;400;500&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --primary-purple: #7c3aed;
+            --soft-purple: #c4b5fd;
+            --fuchsia-matte: #f472b6;
+            --white-soft: #f9fafb;
+            --gray-light: #f3f4f6;
+            --text-dark: #312e38;
+            --text-light: #f9fafb;
+        }
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-
-        :root {
-            --primary-purple: #6b46c1;
-            --light-purple: #a78bfa;
-            --dark-purple: #4c1d95;
-            --muted-purple: #ddd6fe;
-            --text-dark: #1f2937;
-            --text-light: #f9fafb;
-            --background-light: #f8fafc;
-            --background-dark: #0f0f23;
-        }
-
         html {
             scroll-behavior: smooth;
         }
-
         body {
             font-family: 'Roboto', sans-serif;
             line-height: 1.6;
             color: var(--text-dark);
+            background: var(--white-soft);
             overflow-x: hidden;
         }
-
         .slideshow-container {
             height: 100vh;
             overflow-y: auto;
             scroll-snap-type: y mandatory;
         }
-
         .slide {
             min-height: 100vh;
             display: flex;
@@ -49,7 +44,6 @@
             position: relative;
             padding: 2rem;
         }
-
         .slide-content {
             max-width: 1200px;
             width: 100%;
@@ -58,45 +52,32 @@
             gap: 4rem;
             align-items: center;
         }
-
-        .slide.reverse .slide-content {
-            direction: rtl;
-        }
-
-        .slide.reverse .text-content {
-            direction: ltr;
-        }
-
+        .slide.reverse .slide-content { direction: rtl; }
+        .slide.reverse .text-content { direction: ltr; }
         .text-content h1 {
             font-size: 3.5rem;
             font-weight: 700;
             margin-bottom: 1.5rem;
             line-height: 1.1;
         }
-
         .text-content h2 {
             font-size: 2.5rem;
             font-weight: 500;
             margin-bottom: 1.5rem;
             line-height: 1.2;
         }
-
         .text-content p {
             font-size: 1.25rem;
             margin-bottom: 1.5rem;
             font-weight: 300;
         }
-
         .text-content ul {
             font-size: 1.1rem;
-            margin-left: 2rem;
             margin-bottom: 1.5rem;
         }
-
         .text-content li {
             margin-bottom: 0.5rem;
         }
-
         .text-content .accent-text {
             font-family: 'Roboto Mono', monospace;
             font-size: 1rem;
@@ -105,7 +86,6 @@
             color: var(--primary-purple);
             margin-bottom: 0.5rem;
         }
-
         .visual-element {
             width: 100%;
             max-width: 400px;
@@ -126,13 +106,65 @@
             border-radius: 20px;
             box-shadow: 0 4px 24px rgba(40, 0, 60, 0.08);
         }
+        /* Virtudes en 2 columnas responsivo */
+        .virtudes-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: .5em 2em;
+            list-style: disc inside;
+            font-size: 1.1em;
+            margin-bottom: 1.5em;
+            padding-left: 0;
+            max-width: 420px;
+        }
+        .visual-element-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr 1fr;
+            gap: 14px;
+            width: 400px;
+            height: 400px;
+            border-radius: 20px;
+            overflow: hidden;
+            background: #f3f0ff;
+        }
+        .visual-element-grid img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 0;
+        }
+        .visual-element-grid img:nth-child(1) { border-top-left-radius: 20px; }
+        .visual-element-grid img:nth-child(2) { border-top-right-radius: 20px; }
+        .visual-element-grid img:nth-child(3) { border-bottom-left-radius: 20px; }
+        .visual-element-grid img:nth-child(4) { border-bottom-right-radius: 20px; }
 
-        .slide-1 { background: linear-gradient(135deg, var(--primary-purple) 0%, var(--dark-purple) 100%); color: var(--text-light);}
-        .slide-2 { background: var(--background-light); color: var(--text-dark);}
-        .slide-3 { background: linear-gradient(135deg, var(--muted-purple) 0%, var(--background-light) 100%);}
-        .slide-4 { background: var(--background-dark); color: var(--text-light);}
-        .slide-5 { background: linear-gradient(135deg, var(--primary-purple) 0%, var(--light-purple) 100%); color: var(--text-light);}
-
+        /* Slide backgrounds */
+        .slide-1 {
+            background: linear-gradient(135deg, var(--primary-purple), var(--fuchsia-matte) 60%, var(--soft-purple) 100%);
+            color: var(--text-light);
+        }
+        .slide-2 {
+            background: linear-gradient(135deg, var(--soft-purple) 0%, var(--white-soft) 100%);
+            color: var(--text-dark);
+        }
+        .slide-3 {
+            background: linear-gradient(135deg, var(--gray-light) 30%, var(--soft-purple) 100%);
+            color: var(--text-dark);
+        }
+        .slide-4 {
+            background: linear-gradient(135deg, var(--primary-purple) 60%, var(--fuchsia-matte) 100%);
+            color: var(--text-light);
+        }
+        .slide-5 {
+            background: linear-gradient(135deg, var(--fuchsia-matte) 0%, var(--soft-purple) 100%);
+            color: var(--text-dark);
+        }
+        .slide-5 h2, .slide-5 .accent-text {
+            color: var(--primary-purple);
+            text-shadow: 0 2px 8px #fff8;
+        }
+        /* Navigation dots */
         .nav-dots {
             position: fixed;
             right: 2rem;
@@ -143,39 +175,53 @@
             flex-direction: column;
             gap: 1rem;
         }
-
         .nav-dot {
             width: 12px;
             height: 12px;
             border-radius: 50%;
-            background: rgba(107, 70, 193, 0.3);
+            background: rgba(124, 58, 237, 0.22);
             cursor: pointer;
             transition: all 0.3s ease;
         }
-
         .nav-dot.active {
             background: var(--primary-purple);
             transform: scale(1.2);
         }
-
         .nav-dot:hover {
-            background: var(--light-purple);
+            background: var(--fuchsia-matte);
         }
-
-        @media (max-width: 768px) {
+        @media (max-width: 900px) {
             .slide-content {
                 grid-template-columns: 1fr;
                 gap: 2rem;
                 text-align: center;
             }
             .slide.reverse .slide-content { direction: ltr; }
-            .text-content h1 { font-size: 2.5rem; }
-            .text-content h2 { font-size: 2rem; }
-            .text-content p { font-size: 1.1rem; }
-            .visual-element { height: 250px; max-width: 95vw;}
-            .slide { padding: 1rem; }
-            .nav-dots { right: 1rem; gap: 0.8rem; }
-            .nav-dot { width: 10px; height: 10px; }
+            .virtudes-grid {
+                max-width: 100%;
+                margin: 0 auto 1.5em auto;
+            }
+            .visual-element-grid {
+                width: 95vw;
+                height: 48vw;
+                max-height: 220px;
+                margin: 0 auto;
+            }
+            .visual-element {
+                max-width: 95vw;
+                height: 240px;
+            }
+        }
+        @media (max-width: 600px) {
+            .virtudes-grid {
+                grid-template-columns: 1fr;
+                max-width: 100%;
+            }
+            .visual-element-grid {
+                width: 95vw;
+                height: 48vw;
+                max-height: 180px;
+            }
         }
     </style>
 </head>
@@ -190,20 +236,18 @@
                     <p>Mi amor, hoy celebramos tus primeros 30 años de vida. ¡Feliz cumpleaños! Es un momento muy especial y quiero que sepas lo feliz que me hace poder acompañarte, aunque sea a la distancia, en este día tan importante.</p>
                 </div>
                 <div class="visual-element">
-                    <!-- Slide 1: foto1.jpg -->
                     <img src="assets/images/foto1.jpg" alt="Foto especial de cumpleaños">
                 </div>
             </div>
         </section>
-
-        <!-- Slide 2 -->
+        <!-- Slide 2 (Virtudes, 2 columnas y 4 fotos) -->
         <section class="slide slide-2 reverse">
             <div class="slide-content">
                 <div class="text-content">
                     <div class="accent-text">Tu luz y virtudes</div>
                     <h2>Virtudes que te hacen única</h2>
                     <p>Durante estos 30 años has llenado el mundo de luz con tus virtudes:</p>
-                    <ul>
+                    <ul class="virtudes-grid">
                         <li>Alegría</li>
                         <li>Creatividad</li>
                         <li>Sabiduría</li>
@@ -213,17 +257,29 @@
                         <li>Fortaleza</li>
                         <li>Justicia</li>
                         <li>Amabilidad</li>
-                        <li>Y muchas más que ya no caben en la diapositiva...</li>
+                        <li>Paciencia</li>
+                        <li>Generosidad</li>
+                        <li>Optimismo</li>
+                        <li>Perseverancia</li>
+                        <li>Sensibilidad</li>
+                        <li>Honestidad</li>
+                        <li>Carisma</li>
+                        <li>Inspiración</li>
+                        <li>Comprensión</li>
+                        <li>Ternura</li>
+                        <li>Responsabilidad</li>
                     </ul>
+                    <p style="margin-top:1em;"><strong>Y muchas más que ya no caben en la diapositiva...</strong></p>
                     <p>Eres una mujer maravillosa y única.</p>
                 </div>
-                <div class="visual-element">
-                    <!-- Slide 2: foto2.jpg -->
-                    <img src="assets/images/foto2.jpg" alt="Foto que muestre su alegría o virtudes">
+                <div class="visual-element-grid">
+                    <img src="assets/images/foto2a.jpg" alt="Virtud 1">
+                    <img src="assets/images/foto2b.jpg" alt="Virtud 2">
+                    <img src="assets/images/foto2c.jpg" alt="Virtud 3">
+                    <img src="assets/images/foto2d.jpg" alt="Virtud 4">
                 </div>
             </div>
         </section>
-
         <!-- Slide 3 -->
         <section class="slide slide-3">
             <div class="slide-content">
@@ -233,12 +289,10 @@
                     <p>Te mereces que todos tus sueños y deseos se hagan realidad. Hoy quiero desearte de corazón un muy feliz cumpleaños y recordarte lo valiosa que eres para mí y para todos los que te rodean.</p>
                 </div>
                 <div class="visual-element">
-                    <!-- Slide 3: foto3.jpg -->
                     <img src="assets/images/foto3.jpg" alt="Foto de algún logro o sueño cumplido">
                 </div>
             </div>
         </section>
-
         <!-- Slide 4 -->
         <section class="slide slide-4 reverse">
             <div class="slide-content">
@@ -248,12 +302,10 @@
                     <p>Aunque hoy no podamos estar juntos físicamente, sabes que siempre estaré ahí para ti. Espero que la vida me permita acompañarte en todos los años que están por venir y seguir compartiendo momentos inolvidables juntos.</p>
                 </div>
                 <div class="visual-element">
-                    <!-- Slide 4: foto4.jpg -->
                     <img src="assets/images/foto4.jpg" alt="Foto juntos o que represente unión">
                 </div>
             </div>
         </section>
-
         <!-- Slide 5 -->
         <section class="slide slide-5">
             <div class="slide-content">
@@ -267,13 +319,11 @@
                     </div>
                 </div>
                 <div class="visual-element">
-                    <!-- Slide 5: foto5.jpg -->
                     <img src="assets/images/foto5.jpg" alt="Foto juntos, collage o despedida">
                 </div>
             </div>
         </section>
     </div>
-
     <!-- Navigation dots -->
     <div class="nav-dots">
         <div class="nav-dot active" onclick="scrollToSlide(0)"></div>
@@ -282,7 +332,6 @@
         <div class="nav-dot" onclick="scrollToSlide(3)"></div>
         <div class="nav-dot" onclick="scrollToSlide(4)"></div>
     </div>
-
     <script>
         // Navigation functionality
         function scrollToSlide(slideIndex) {
